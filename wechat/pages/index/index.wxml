@@ -1,0 +1,85 @@
+<view class='contain'>
+ <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
+    class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">  
+  <view class='nav'>
+    <view class='search_form'>
+      <view class='input_form'>
+        <view class='search_input'>
+        <p class="p">搜索商品，发现更多优品</p>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="scroll_view">
+  <scroll-view class="scroll-view_H1" scroll-x="true" style="width: 90%">
+    <view class='navbar'>
+        <label class='label'>精选</label>
+        <label class='label' wx:for="{{navList}}" wx:for-index="index" wx:if="{{index>0}}">{{item.catName}}</label>
+    </view>
+  </scroll-view>
+  </view>
+<swiper
+  indicator-dots="true"
+  autoplay="true"
+  interval="5000"
+  duration="500"
+>
+  <block wx:for="{{adList}}">
+    <swiper-item width="100%">
+      <image src="{{item.adCodeW450}}" class="slide-image" width="100%" height="6rem" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class='grids'>
+     <view class='grids_view' wx:for="{{grids}}" wx:if="{{index<5}}" >
+        <image  src="{{item.icon}}" class='grids_img'></image>
+        <view class='grids_text'>{{item.label}}</view>
+     </view>  
+</view>
+<view class='grids'>
+    <view class='grids_view' wx:for="{{grids}}" wx:if="{{index>=5}}" >
+        <image  src="{{item.icon}}" class='grids_img'></image>
+        <view class='grids_text'>{{item.label}}</view>
+     </view>  
+</view>
+<view class='channel'>
+  <view class='channel1' wx:for="{{channels}}" wx:if="{{index<2}}">
+     <view >
+      <view class='channel_text1'>{{item.title}}</view>
+       <view class='channel_text'>{{item.subTitle}}</view>
+       <view class='channel_imgs'> 
+       <image  src="{{item.pic0}}" class='channel_img'></image>
+       </view>
+       
+      </view>
+     <image  src="{{item.pic1}}" class='channel_img2'></image>
+  </view>
+ 
+</view>
+<view class='channel'>
+ <view class='channel1' wx:for="{{channels}}" wx:if="{{index>=2}}">
+      <view >
+      <view class='channel_text1'>{{item.title}}</view>
+       <view class='channel_text'>{{item.subTitle}}</view>
+       <view class='channel_imgs'> 
+          <image  src="{{item.pic0}}" class='channel_img'></image>
+       </view>
+      </view>
+     <image  src="{{item.pic1}}" class='channel_img2'></image>
+  </view>
+</view>
+<view class='goodsList'>
+
+  <view class='goodsleft' wx:for="{{goodsList}}">
+    <view class='goodsall'>
+        <image src="{{item.picUrl}}" class='goods_img'></image>
+        <view class='goods_title'>
+        <image src="../imgs/taobaologo.png" class='img_ico'></image>
+        {{item.title}}</view>
+    </view>
+  </view>
+
+
+</view>
+</scroll-view>
+</view>
